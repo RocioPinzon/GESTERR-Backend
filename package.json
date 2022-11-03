@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "GesTerr | Aplicacion para gestion de campos.",
   "main": "index.js",
+
   "scripts": {
     "dev": "nodemon src/app.js"
   },
