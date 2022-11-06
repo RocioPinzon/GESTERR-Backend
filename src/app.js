@@ -1,6 +1,12 @@
 const express = require('express');
 const path  = require('path');
 const morgan  = require('morgan');
+const exphandle = require('express-handlebars');
+const methodOverride = require('method-override');
+const expressSession = require('express-session');
+const flash = require("connect-flash");
+const passport = require('passport');
+
 
 // Initiliazations // 
 const app = express();
@@ -13,7 +19,16 @@ app.set(express(express.json()));
 
 // Middlewares // 
 app.use(morgan('dev'));
-
+app.use(express.urlencoded({extended:false}));
+app.use(methodOverride('_method'));
+app.use(expressSession({
+    secret:'mySecretWord',
+    resave:true,
+    saveUninitialized:true
+}));
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(flash());
 
 
 // Global Variables  // 
