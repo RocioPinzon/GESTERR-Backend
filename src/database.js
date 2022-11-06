@@ -13,8 +13,6 @@ mongoose.connect(dbUrl,
             family: 4 // Use IPv4, skip trying IPv6
     })
     .then(db => {
-        console.log('DB is connected')
-        
-            
+        console.log('DB is connected')            
     })
     .catch(err => console.log(err));
