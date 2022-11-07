@@ -15,7 +15,15 @@ require('./database');
 // Settings // 
 app.set('port', process.env.PORT || 3000);
 app.set(express(express.json()));
+app.set('views', path.join(__dirname,'views'));
 
+app.engine('.hbs', exphandle.engine({
+    defaultLayout: 'main',
+    layoutsDir: path.join(app.get('views'),'layouts'),
+    partialsDir: path.join(app.get('views'),'partials'),
+    extname: '.hbs'
+}));
+app.set('view engine', '.hbs');
 
 // Middlewares // 
 app.use(morgan('dev'));
@@ -35,7 +43,10 @@ app.use(flash());
 
 
 // Routes // 
-
+app.use('/user',require('./routes/users'));
+app.use('/user/:idUser/campos',require('./routes/campos'));
+app.use('/user/:idUser/campos/:idCampo/cultivo',require('./routes/cultivos'));
+app.use('/user/:idUser/campos/:idCampo/cultivo/:idCultivo/producto',require('./routes/productos'));
 
 // Static files // 
 
