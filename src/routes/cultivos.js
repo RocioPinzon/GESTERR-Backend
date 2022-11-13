@@ -4,17 +4,17 @@ const router = express.Router();
 const Cultivos = require('../models/Cultivo');
 //const User = require('../models/User');
 
-router.get('/', async (req,res) => { //obtner cultivos de un usuaio almacenados
+router.get('/:idCampo/cultivos', async (req,res) => { //obtner cultivos de un usuaio almacenados
 
     //necestas el id del usuario - necesito req.params.idUser
-    const cultivos = await Cultivos.find();
+    const cultivos = await Cultivos.find({idCampo: req.params.idCampo});
     console.log("Cultivos --> " + cultivos);
     res.json(cultivos);
 });
 
 
 
-router.post('/', async (req,res)=>{ //nos permite guardar campos
+router.post('/:idCampo/cultivos', async (req,res)=>{ //nos permite guardar campos
     const cultivos = new Cultivos();
     
     //necestas el id del usuario - necesito req.params.idUser
@@ -27,13 +27,13 @@ router.post('/', async (req,res)=>{ //nos permite guardar campos
     });
 });
 
-router.get('/:idCultivo', async (req,res) => { //obtner campos almacenados
+router.get('/:idCampo/cultivos/:idCultivo', async (req,res) => { //obtner campos almacenados
     const cultivos = await Cultivos.find();
     console.log("cultivos --> " + cultivos);
     res.json(cultivos);
 });
 
-router.put('/:idCultivo',async (req,res)=>{
+router.put('/:idCampo/cultivos/:idCultivo',async (req,res)=>{
     
     await Cultivos.findByIdAndUpdate(req.params.idCultivo, req.body);
     res.json({
@@ -41,7 +41,7 @@ router.put('/:idCultivo',async (req,res)=>{
     });
 });
 
-router.delete('/:idCultivo', async(req,res)=>{
+router.delete('/:idCampo/cultivos/:idCultivo', async(req,res)=>{
 
     await Cultivos.findByIdAndDelete(req.params.id, req.body);
     res.json({

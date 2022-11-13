@@ -3,65 +3,19 @@ const router = express.Router();
 const User = require('../models/User');
 const passport = require('passport');
 
+router.get('/', async (req,res) => { //obtner producos de un cultivo almacenados
 
-// SIGNIN //
-router.get('/signin', (req,res) => {
-    res.render('users/signin');
+    //necestas el id del usuario - necesito req.params.idUser
+    const users = await User.find();
+    console.log("users --> " + users);
+    res.json(users);
 });
 
-router.post('/signin', passport.authenticate("local", {
-    successRedirect:'/notas',
-    failureRedirect:'/users/signin',
-    failureFlash:true
-}));
-
-
-// SIGNUP //
-router.get('/signup', (req,res) => {
-    res.render('users/signup');
+router.get('/:idUser', async (req,res) => { //obtner campos almacenados
+    const user = await User.findById(req.params.idUser);
+    console.log("user --> " + user);
+    //res.json(campos);
+    res.json(user);
 });
-
-router.post('/signup', async(req,res) =>{
-    const {name,email,password, confirmPassword} = req.body;
-    const errors = [];
-    
-    if(name.length<=0){
-        errors.push({text:'El nombre no puede estar vacio.'});
-    }
-    if(name.length<=0){
-        errors.push({text:'La contraseña no puede estar vacia.'});
-    }
-    if(password!=confirmPassword){
-        errors.push({text:'Las contraseñas no son iguales.'});
-    }
-
-    if(password.length < 4){
-        errors.push({text:'La contraseña debe tener al menos 4 caracteres.'});
-    }
-    if(errors.length > 0){
-        res.render('users/signup', {errors,name, email, password, confirmPassword});
-    }else{
-        const emailUser = await User.findOne({email: email});
-        if(emailUser){
-            req.flash('error_msg','El email ya está en uso');
-            res.redirect('/users/signup');
-        } 
-        
-        const newUser = new User({name, email, password});
-        newUser.password = await newUser.encryptPassword(password);
-        await newUser.save();
-        req.flash('success_msg','Estás registrado');
-        res.redirect('/users/signin');
-    }
-
-});
-
-router.get("/logout", (req, res) => {
-    req.logout(req.user, err => {
-      if(err) return next(err);
-      res.redirect("/");
-    });
-  });
-  
 
 module.exports = router;
