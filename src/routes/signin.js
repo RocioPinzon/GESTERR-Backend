@@ -3,65 +3,68 @@ const router = express.Router();
 const User = require('../models/User');
 const passport = require('passport');
 
-/*
-// SIGNIN //
-router.get('/signin', (req,res) => {
-    res.render('users/signin');
-});
 
-router.post('/signin', passport.authenticate("local", {
-    successRedirect:'/users',
-    failureRedirect:'/users/signin',
-    failureFlash:true
-}));
-
-
-// SIGNUP //
-router.get('/signup', (req,res) => {
-    res.render('users/signup');
-});*/
-
-router.post('/signup', async(req,res) =>{
+router.post('/signin', async (req, res) => {
     console.log("SIGNUP BODY: " + JSON.stringify(req.body));
-    const {name,email,password, confirmPassword} = req.body;
+    const { email, password } = req.body;
     const errors = [];
-    
-    if(!name || name.length<=0){
-        errors.push({text:'El nombre no puede estar vacio.'});
+
+    if (!email || email.length <= 0) {
+        errors.push({ error: 'El nombre no puede estar vacio.' });
     }
-    
-    if(!password || password.length<=0){
-        errors.push({text:'La contraseña no puede estar vacia.'});
+    if (!password || password.length <= 0) {
+        errors.push({ error: 'La contraseña no puede estar vacia.' });
     }
 
-    if(password!=confirmPassword){
-        errors.push({text:'Las contraseñas no son iguales.'});
-    }
-
-    if(!password || password.length < 4){
-        errors.push({text:'La contraseña debe tener al menos 4 caracteres.'});
-    }
-    if(errors.length > 0){
-        res.json({errors,name, email, password, confirmPassword});
-    }else{
-        const emailUser = await User.findOne({email: email});
-        if(emailUser){
-            req.flash('error_msg','El email ya está en uso');
-        } 
-        
-        const newUser = new User({name, email, password});
-        newUser.password = await newUser.encryptPassword(password);
-        await newUser.save();
-        req.flash('success_msg','Estás registrado');
+    if (errors.length > 0) {
+        res.status(400).json({ errors, email });
+    } else {
+        const usuarioEncontrado = await User.findOne({ email: email });
+        if (!usuarioEncontrado) {
+            res.status(400).json({ error: 'Usuario o contraseña invalida' });
+        } else {
+            if (usuarioEncontrado.matchPassword(password)) {
+                res.status(200).json({ userId: usuarioEncontrado.id });
+            } else {
+                res.status(400).json({ error: 'Usuario o contraseña invalida' });
+            }
+        }
     }
 });
 
-/*
-router.get("/logout", (req, res) => {
-    req.logout(req.user, err => {
-      if(err) return next(err);
-      res.redirect("/");
-    });
-  });
-*/
+router.post('/signup', async (req, res) => {
+    console.log("SIGNUP BODY: " + JSON.stringify(req.body));
+    const { name, email, password, confirmPassword } = req.body;
+    const errors = [];
+
+    if (!name || name.length <= 0) {
+        errors.push({ error: 'El nombre no puede estar vacio.' });
+    }
+
+    if (!password || password.length <= 0) {
+        errors.push({ error: 'La contraseña no puede estar vacia.' });
+    }
+
+    if (password != confirmPassword) {
+        errors.push({ error: 'Las contraseñas no son iguales.' });
+    }
+
+    if (!password || password.length < 4) {
+        errors.push({ error: 'La contraseña debe tener al menos 4 caracteres.' });
+    }
+    if (errors.length > 0) {
+        res.status(400).json({ errors, name, email, password, confirmPassword });
+    } else {
+        const emailUser = await User.findOne({ email: email });
+        if (emailUser) {
+            res.status(400).json({ error: 'El email ya está en uso' });
+        } else {
+            const newUser = new User({ name, email, password });
+            newUser.password = await newUser.encryptPassword(password);
+            await newUser.save();
+            res.status(200).json({ msg: 'Estás registrado' });
+        }
+    }
+});
+
 module.exports = router;
