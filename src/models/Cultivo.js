@@ -3,6 +3,7 @@ const { Schema } = mongoose;
 
 
 const CultivoSchema = new Schema({
+    user:{type:String},
     idCampo: {type: String, require:true},
     nombre: {type: String, require:true},
     cantidad: {type: Number, require:true},

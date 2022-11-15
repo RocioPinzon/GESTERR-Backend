@@ -2,14 +2,12 @@ const express = require('express');
 const router = express.Router();
 
 const Campos = require('../models/Campo');
-//const User = require('../models/User');
 
 router.get('/:idUser/campos', async (req,res) => { //obtner campos de un usuaio almacenados
     console.log("Obtener campo: " +JSON.stringify(req.params));
     //necestas el id del usuario - necesito req.params.idUser
     const campos = await Campos.find({user:req.params.idUser});
     console.log("campos --> " + campos);
-    
     res.json(campos);
 }); 
 
@@ -18,8 +16,7 @@ router.post('/:idUser/campos', async (req,res)=>{ //nos permite guardar campos
 
     const campos = new Campos(req.body);
     campos.user = req.params.idUser;
-    //necestas el id del usuario - necesito req.params.idUser
-    //console.log("Campos() --> " + new Campos());
+
     const campoCreado = await campos.save();
     res.json(campoCreado);
 });
@@ -28,7 +25,6 @@ router.get('/:idUser/campos/:idCampo', async (req,res) => { //obtener un campo (
     console.log(req.params);
     const campos = await Campos.findById(req.params.idCampo);
     console.log("campos --> " + campos);
-    //res.json(campos);
     res.json(campos);
 });
 

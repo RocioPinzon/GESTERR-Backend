@@ -3,49 +3,42 @@ const router = express.Router();
 
 const Productos = require('../models/Producto');
 
-router.get('/', async (req,res) => { //obtner producos de un cultivo almacenados
-
+router.get('/:idUser/productos', async (req,res) => { //obtener productos de un usuario
+    console.log("Obtener campo: " +JSON.stringify(req.params));
     //necestas el id del usuario - necesito req.params.idUser
-    const productos = await Productos.find();
+    const productos = await Productos.find({user: req.params.idUser});
     console.log("productos --> " + productos);
     res.json(productos);
 });
 
+router.post('/:idUser/productos', async (req,res)=>{ //nos permite guardar productos 
+    console.log("req.body --> " , JSON.stringify(req.body));
 
+    const productos = new Productos(req.body);
+    productos.user = req.params.idUser;
 
-router.post('/', async (req,res)=>{ //nos permite guardar campos
-    
-    //necestas el id del usuario - necesito req.params.idUser
-    const productos = new Productos();
-
-    //console.log("req.body --> " , req.body);
-    //console.log("Productos() --> " + new Productos());
-    await productos.save();
-    res.json({
-        status: 'producto creado'
-    });
+    const productoCreado = await productos.save();
+    res.json(productoCreado);
 });
 
-router.get('/:idProducto', async (req,res) => { //obtner campos almacenados
-    const productos = await Productos.find();
-    console.log("productos --> " + productos);
-    res.json(productos);
+router.get('/:idUser/productos/:idProducto', async (req,res) => { //obtener datos de un producto almacenados
+    console.log(req.params);
+    const producto = await Productos.find(req.params.idProducto);
+    console.log("productos --> " + producto);
+    res.json(producto);
 });
 
-router.put('/:idProducto',async (req,res)=>{
-    
-    await Productos.findByIdAndUpdate(req.params.idProducto, req.body);
-    res.json({
-        status: 'producto actualizada'
-    });
+router.put('/:idUser/productos/:idProducto',async (req,res)=>{
+    console.log("req.body --> " , JSON.stringify(req.body));
+
+    const productoActualizado = await Productos.findByIdAndUpdate(req.params.idProducto, req.body);
+    res.json(productoActualizado);
 });
 
-router.delete('/:idProducto', async(req,res)=>{
+router.delete('/:idUser/productos/:idProducto', async(req,res)=>{
 
-    await Productos.findByIdAndDelete(req.params.id, req.body);
-    res.json({
-        status: 'producto eliminado'
-    });
+    const productoEliminado = await Productos.findByIdAndDelete(req.params.idProducto, req.body);
+    res.json(productoEliminado);
 });
 
 module.exports = router;

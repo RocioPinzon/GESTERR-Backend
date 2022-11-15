@@ -38,9 +38,9 @@ app.use(passport.session());
 // Routes // 
 app.use('/user', require('./routes/users'));
 app.use('/user', require('./routes/signin'));
-app.use('/user/:idUser/productos', require('./routes/productos'));
-app.use('/user/', require('./routes/campos'));
-app.use('/user/:idUser/campos', require('./routes/cultivos'));
+app.use('/user', require('./routes/campos'));
+app.use('/user', require('./routes/cultivos'));
+app.use('/user', require('./routes/productos'));
 
 
 // Server is listenning  // 
