@@ -1,346 +1,578 @@
 {
-	"info": {
-		"_postman_id": "e00ff9bf-616a-465b-9201-618e1cabc665",
-		"name": "gesterr",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
-	},
-	"item": [
+	"id": "843ca901-236f-fddd-eeb2-e73778bc023c",
+	"name": "gesterr",
+	"description": "",
+	"order": [],
+	"folders": [
 		{
+			"id": "e338d1f8-7320-f85c-dde8-af669a6b6846",
 			"name": "User",
-			"item": [
-				{
-					"name": "{{host}}/user",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"type": "text/javascript",
-								"exec": [
-									"tests[\"Status code is 200\"] = responseCode.code === 200;"
-								]
-							}
-						}
-					],
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{host}}/user",
-							"host": [
-								"{{host}}"
-							],
-							"path": [
-								"user"
-							]
-						},
-						"description": "Obtener usuarios"
-					},
-					"response": []
-				},
-				{
-					"name": "{{host}}/user/:idUser",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"type": "text/javascript",
-								"exec": [
-									"tests[\"Status code is 200\"] = responseCode.code === 200;"
-								]
-							}
-						}
-					],
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{host}}/user/63714a2e7b54baaa07d7c587",
-							"host": [
-								"{{host}}"
-							],
-							"path": [
-								"user",
-								"63714a2e7b54baaa07d7c587"
-							]
-						},
-						"description": "Obtener usuarios"
-					},
-					"response": []
-				},
-				{
-					"name": "{{host}}/user/signup",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"tests[\"Status code is 200\"] = responseCode.code === 200;"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"protocolProfileBehavior": {
-						"disabledSystemHeaders": {}
-					},
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\"name\":\"prueba3\",\"email\": \"prueba3@prueba.com\",\"password\": \"1234\",\"confirmPassword\": \"1234\"}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{host}}/user/signup",
-							"host": [
-								"{{host}}"
-							],
-							"path": [
-								"user",
-								"signup"
-							]
-						},
-						"description": "Obtener usuarios"
-					},
-					"response": []
-				},
-				{
-					"name": "{{host}}/user/signin",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"tests[\"Status code is 200\"] = responseCode.code === 200;"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"protocolProfileBehavior": {
-						"disabledSystemHeaders": {}
-					},
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\"email\": \"prueba3@prueba.com\",\"password\": \"1234\"}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{host}}/user/signin",
-							"host": [
-								"{{host}}"
-							],
-							"path": [
-								"user",
-								"signin"
-							]
-						},
-						"description": "Obtener usuarios"
-					},
-					"response": []
-				}
-			]
+			"description": "",
+			"order": [
+				"cfd9e6a8-a367-e116-a21f-dee47041a828",
+				"6045c6aa-159f-af54-baa8-fcf8f0c5241f",
+				"8bfbbdd8-c0ef-f8a9-578b-e1889a257c2c",
+				"912a8d87-7331-6e57-30b7-4c91d9899e4d"
+			],
+			"folders_order": [],
+			"owner": 0,
+			"collectionId": "843ca901-236f-fddd-eeb2-e73778bc023c"
 		},
 		{
+			"id": "d676b397-e767-93f8-97a5-0a7d01eab080",
 			"name": "campos",
-			"item": [
+			"description": "",
+			"order": [
+				"da93e279-9cbd-1a0c-0418-8417d0f4254f",
+				"31caa96c-edd6-8d7d-009f-139bd2dd6109",
+				"fe577b42-2e12-8f7d-ac95-da3693cc38ed",
+				"dea602fc-9af9-4a0a-83c8-e65e0ed44848",
+				"fc00ff03-1e63-fbed-d08d-9f52e8aed581"
+			],
+			"folders_order": [],
+			"owner": 0,
+			"collectionId": "843ca901-236f-fddd-eeb2-e73778bc023c"
+		},
+		{
+			"name": "cultivos",
+			"description": "",
+			"collectionId": "843ca901-236f-fddd-eeb2-e73778bc023c",
+			"order": [
+				"f972e82c-b219-404c-ca7e-480edd1cae3a",
+				"cc9916fc-eca0-b2e1-27be-53c5ba9606b5",
+				"3d24fb3e-66fe-0e2a-8a9a-fc378e37c3fe",
+				"431e0fb2-b32b-3e5e-315e-7d202bc0127c",
+				"e74ea595-977c-1578-b035-47f2763aa5f3"
+			],
+			"owner": 0,
+			"folders_order": [],
+			"id": "f784abdd-5256-c206-3e6a-06c5db985e8e"
+		},
+		{
+			"name": "productos",
+			"description": "",
+			"collectionId": "843ca901-236f-fddd-eeb2-e73778bc023c",
+			"order": [
+				"173fab93-26e7-7aa6-0316-601179eb1e3a",
+				"c1a7a25e-2700-39d0-8eca-673e8f7c3f60",
+				"a7aa34af-a94f-77d2-104a-f49abe88aa60",
+				"8341c37f-fb82-7e45-3811-8a82b6c19919",
+				"8e6ce1ec-cf41-8d01-c0ba-5985e683b5ed"
+			],
+			"owner": 0,
+			"folders_order": [],
+			"id": "dc665f21-6a6b-0269-9df6-da331fc78031"
+		}
+	],
+	"folders_order": [
+		"e338d1f8-7320-f85c-dde8-af669a6b6846",
+		"d676b397-e767-93f8-97a5-0a7d01eab080",
+		"f784abdd-5256-c206-3e6a-06c5db985e8e",
+		"dc665f21-6a6b-0269-9df6-da331fc78031"
+	],
+	"timestamp": 0,
+	"owner": 0,
+	"public": false,
+	"requests": [
+		{
+			"id": "173fab93-26e7-7aa6-0316-601179eb1e3a",
+			"headers": "",
+			"headerData": [],
+			"url": "{{host}}/user/6372bb8b276713a4637ec8ad/productos",
+			"folder": "dc665f21-6a6b-0269-9df6-da331fc78031",
+			"queryParams": [],
+			"preRequestScript": "",
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": [],
+			"dataMode": "params",
+			"tests": "tests[\"Status code is 200\"] = responseCode.code === 200;",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1668472229227,
+			"name": "{{host}}/user/:idUser/productos",
+			"description": "Obtener cultivos de un campo",
+			"collectionId": "843ca901-236f-fddd-eeb2-e73778bc023c",
+			"responses": []
+		},
+		{
+			"id": "31caa96c-edd6-8d7d-009f-139bd2dd6109",
+			"headers": "",
+			"headerData": [],
+			"url": "{{host}}/user/63714a2e7b54baaa07d7c587/campos/6372e2e51754732ee223f8ae",
+			"folder": "d676b397-e767-93f8-97a5-0a7d01eab080",
+			"queryParams": [],
+			"preRequestScript": "",
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": [],
+			"dataMode": "params",
+			"tests": "tests[\"Status code is 200\"] = responseCode.code === 200;",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1668473609859,
+			"name": "{{host}}/user/idUser/campos/:idCampo",
+			"description": "Obtener usuarios",
+			"collectionId": "843ca901-236f-fddd-eeb2-e73778bc023c",
+			"responses": []
+		},
+		{
+			"id": "3d24fb3e-66fe-0e2a-8a9a-fc378e37c3fe",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
 				{
-					"name": "{{host}}/user/:idUser/campos",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"type": "text/javascript",
-								"exec": [
-									"tests[\"Status code is 200\"] = responseCode.code === 200;"
-								]
-							}
-						}
-					],
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{host}}/user/63714a2e7b54baaa07d7c587/campos",
-							"host": [
-								"{{host}}"
-							],
-							"path": [
-								"user",
-								"63714a2e7b54baaa07d7c587",
-								"campos"
-							]
-						},
-						"description": "Obtener usuarios"
-					},
-					"response": []
-				},
-				{
-					"name": "{{host}}/user/idUser/campos/:idCampo",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"type": "text/javascript",
-								"exec": [
-									"tests[\"Status code is 200\"] = responseCode.code === 200;"
-								]
-							}
-						}
-					],
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{host}}/user/63714a2e7b54baaa07d7c587/campos",
-							"host": [
-								"{{host}}"
-							],
-							"path": [
-								"user",
-								"63714a2e7b54baaa07d7c587",
-								"campos"
-							]
-						},
-						"description": "Obtener usuarios"
-					},
-					"response": []
-				},
-				{
-					"name": "{{host}}/user/:idUser/campos",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"tests[\"Status code is 200\"] = responseCode.code === 200;"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"name\": \"campo2\",\n    \"hectareas\": 12,\n    \"direccion\": \"avenida dsfdsf\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{host}}/user/63714a2e7b54baaa07d7c587/campos",
-							"host": [
-								"{{host}}"
-							],
-							"path": [
-								"user",
-								"63714a2e7b54baaa07d7c587",
-								"campos"
-							]
-						},
-						"description": "Obtener usuarios"
-					},
-					"response": []
-				},
-				{
-					"name": "{{host}}/user/:idUser/campos/:idCampo",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"tests[\"Status code is 200\"] = responseCode.code === 200;"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "PUT",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n        \"_id\": \"63715b65f4feb0c414cd3bbe\",\n        \"date\": \"2022-11-13T21:02:29.413Z\",\n        \"user\": \"63714a2e7b54baaa07d7c587\",\n        \"name\": \"campo2\",\n\t    \"hectareas\": 12,\n\t    \"direccion\": \"avenida dsfdsf\",\n        \"__v\": 0\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{host}}/user/63714a2e7b54baaa07d7c587/campos/63715b65f4feb0c414cd3bbe",
-							"host": [
-								"{{host}}"
-							],
-							"path": [
-								"user",
-								"63714a2e7b54baaa07d7c587",
-								"campos",
-								"63715b65f4feb0c414cd3bbe"
-							]
-						},
-						"description": "Obtener usuarios"
-					},
-					"response": []
-				},
-				{
-					"name": "{{host}}/user/:idUser/campos/:idCampo",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"type": "text/javascript",
-								"exec": [
-									"tests[\"Status code is 200\"] = responseCode.code === 200;"
-								]
-							}
-						}
-					],
-					"request": {
-						"method": "DELETE",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n        \"_id\": \"63715b65f4feb0c414cd3bbe\",\n        \"date\": \"2022-11-13T21:02:29.413Z\",\n        \"user\": \"63714a2e7b54baaa07d7c587\",\n        \"name\": \"campo2\",\n\t    \"hectareas\": 12,\n\t    \"direccion\": \"avenida dsfdsf\",\n        \"__v\": 0\n}"
-						},
-						"url": {
-							"raw": "{{host}}/user/63714a2e7b54baaa07d7c587/campos/63715b65f4feb0c414cd3bbe",
-							"host": [
-								"{{host}}"
-							],
-							"path": [
-								"user",
-								"63714a2e7b54baaa07d7c587",
-								"campos",
-								"63715b65f4feb0c414cd3bbe"
-							]
-						},
-						"description": "Obtener usuarios"
-					},
-					"response": []
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
 				}
-			]
+			],
+			"url": "{{host}}/user/6372bb8b276713a4637ec8ad/campos/6372e2e51754732ee223f8ae/cultivos",
+			"folder": "f784abdd-5256-c206-3e6a-06c5db985e8e",
+			"queryParams": [],
+			"preRequestScript": "",
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"tests": "tests[\"Status code is 200\"] = responseCode.code === 200;",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1668474183438,
+			"name": "{{host}}/user/:idUser/campos/:idCampo/cultivos",
+			"description": "Obtener usuarios",
+			"collectionId": "843ca901-236f-fddd-eeb2-e73778bc023c",
+			"responses": [],
+			"rawModeData": "{\n    \"nombre\": \"\",\n    \"cantidad\": 20\n    \n}"
+		},
+		{
+			"id": "431e0fb2-b32b-3e5e-315e-7d202bc0127c",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{host}}/user/6372bb8b276713a4637ec8ad/campos/6372cfb538c0f8beb8d079a2/cultivos/6372d11c38c0f8beb8d079ac",
+			"folder": "f784abdd-5256-c206-3e6a-06c5db985e8e",
+			"queryParams": [],
+			"preRequestScript": "",
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "PUT",
+			"data": [],
+			"dataMode": "raw",
+			"tests": "tests[\"Status code is 200\"] = responseCode.code === 200;",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1668469399799,
+			"name": "{{host}}/user/:idUser/campos/:idCampo/cultivos/:idCultivo",
+			"description": "Obtener usuarios",
+			"collectionId": "843ca901-236f-fddd-eeb2-e73778bc023c",
+			"responses": [],
+			"rawModeData": "{\n    \"nombre\": \"JUDIAS\",\n    \"cantidad\": 20,\n    \"_id\": \"6372d11c38c0f8beb8d079ac\",\n    \"date\": \"2022-11-14T23:37:00.019Z\",\n    \"__v\": 0\n}"
+		},
+		{
+			"id": "6045c6aa-159f-af54-baa8-fcf8f0c5241f",
+			"name": "{{host}}/user/:idUser",
+			"description": "Obtener usuarios",
+			"collectionId": "843ca901-236f-fddd-eeb2-e73778bc023c",
+			"method": "GET",
+			"headers": "",
+			"data": [],
+			"rawModeData": "",
+			"tests": "tests[\"Status code is 200\"] = responseCode.code === 200;",
+			"preRequestScript": "",
+			"url": "{{host}}/user/63714a2e7b54baaa07d7c587",
+			"responses": [],
+			"pathVariableData": [],
+			"queryParams": [],
+			"headerData": [],
+			"collection_id": "843ca901-236f-fddd-eeb2-e73778bc023c",
+			"folder": "e338d1f8-7320-f85c-dde8-af669a6b6846"
+		},
+		{
+			"id": "8341c37f-fb82-7e45-3811-8a82b6c19919",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{host}}/user/6372bb8b276713a4637ec8ad/productos/6372dd94f56631b6745cb7a9",
+			"folder": "dc665f21-6a6b-0269-9df6-da331fc78031",
+			"queryParams": [],
+			"preRequestScript": "",
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "PUT",
+			"data": [],
+			"dataMode": "raw",
+			"tests": "tests[\"Status code is 200\"] = responseCode.code === 200;",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1668472555632,
+			"name": "{{host}}/user/:idUser/productos/:idProducto",
+			"description": "Obtener usuarios",
+			"collectionId": "843ca901-236f-fddd-eeb2-e73778bc023c",
+			"responses": [],
+			"rawModeData": "{\n    \"name\": \"ACEITUNAS\",\n    \"cantidad\": 20\n}"
+		},
+		{
+			"id": "8bfbbdd8-c0ef-f8a9-578b-e1889a257c2c",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{host}}/user/signup",
+			"folder": "e338d1f8-7320-f85c-dde8-af669a6b6846",
+			"queryParams": [],
+			"preRequestScript": "",
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"tests": "tests[\"Status code is 200\"] = responseCode.code === 200;",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1668467329287,
+			"name": "{{host}}/user/signup",
+			"description": "Obtener usuarios",
+			"collectionId": "843ca901-236f-fddd-eeb2-e73778bc023c",
+			"responses": [],
+			"rawModeData": "{\"name\":\"Rocdfgio\",\"email\": \"rocifdgo@prueba.com\",\"password\": \"123dfg4\",\"confirmPassword\": \"1234\"}"
+		},
+		{
+			"id": "8e6ce1ec-cf41-8d01-c0ba-5985e683b5ed",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{host}}/user/6372bb8b276713a4637ec8ad/productos/6372dd82f56631b6745cb7a7",
+			"folder": "dc665f21-6a6b-0269-9df6-da331fc78031",
+			"queryParams": [],
+			"preRequestScript": "",
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "DELETE",
+			"data": [],
+			"dataMode": "raw",
+			"tests": "tests[\"Status code is 200\"] = responseCode.code === 200;",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1668472890261,
+			"name": "{{host}}/user/:idUser/productos/:idProducto",
+			"description": "Obtener usuarios",
+			"collectionId": "843ca901-236f-fddd-eeb2-e73778bc023c",
+			"responses": [],
+			"rawModeData": ""
+		},
+		{
+			"id": "912a8d87-7331-6e57-30b7-4c91d9899e4d",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{host}}/user/signin",
+			"folder": "e338d1f8-7320-f85c-dde8-af669a6b6846",
+			"queryParams": [],
+			"preRequestScript": "",
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"tests": "tests[\"Status code is 200\"] = responseCode.code === 200;",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1668467332996,
+			"name": "{{host}}/user/signin",
+			"description": "Obtener usuarios",
+			"collectionId": "843ca901-236f-fddd-eeb2-e73778bc023c",
+			"responses": [],
+			"rawModeData": "{\"email\": \"prueba3@prueba.com\",\"password\": \"1234fdgd\"}"
+		},
+		{
+			"id": "a7aa34af-a94f-77d2-104a-f49abe88aa60",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{host}}/user/6372bb8b276713a4637ec8ad/productos",
+			"folder": "dc665f21-6a6b-0269-9df6-da331fc78031",
+			"queryParams": [],
+			"preRequestScript": "",
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"tests": "tests[\"Status code is 200\"] = responseCode.code === 200;",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1668472973276,
+			"name": "{{host}}/user/:idUser/productos",
+			"description": "Obtener usuarios",
+			"collectionId": "843ca901-236f-fddd-eeb2-e73778bc023c",
+			"responses": [],
+			"rawModeData": "{\n    \"name\": \"Naranjas\",\n    \"cantidad\": 16\n\t\n}"
+		},
+		{
+			"id": "c1a7a25e-2700-39d0-8eca-673e8f7c3f60",
+			"headers": "",
+			"headerData": [],
+			"url": "{{host}}/user/6372bb8b276713a4637ec8ad/productos/6372dd82f56631b6745cb7a7",
+			"folder": "dc665f21-6a6b-0269-9df6-da331fc78031",
+			"queryParams": [],
+			"preRequestScript": "",
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": [],
+			"dataMode": "params",
+			"tests": "tests[\"Status code is 200\"] = responseCode.code === 200;",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1668472988254,
+			"name": "{{host}}/user/idUser/productos/:idProducto",
+			"description": "Obtener usuarios",
+			"collectionId": "843ca901-236f-fddd-eeb2-e73778bc023c",
+			"responses": []
+		},
+		{
+			"id": "cc9916fc-eca0-b2e1-27be-53c5ba9606b5",
+			"headers": "",
+			"headerData": [],
+			"url": "{{host}}/user/6372bb8b276713a4637ec8ad/campos/6372cadecb01abba41f9b492/cultivos/6372e3531754732ee223f8b3",
+			"folder": "f784abdd-5256-c206-3e6a-06c5db985e8e",
+			"queryParams": [],
+			"preRequestScript": "",
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": [],
+			"dataMode": "params",
+			"tests": "tests[\"Status code is 200\"] = responseCode.code === 200;",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1668473942254,
+			"name": "{{host}}/user/idUser/campos/:idCampo/cultivos/:idCultivo",
+			"description": "Obtener usuarios",
+			"collectionId": "843ca901-236f-fddd-eeb2-e73778bc023c",
+			"responses": []
+		},
+		{
+			"id": "cfd9e6a8-a367-e116-a21f-dee47041a828",
+			"name": "{{host}}/user",
+			"description": "Obtener usuarios",
+			"collectionId": "843ca901-236f-fddd-eeb2-e73778bc023c",
+			"method": "GET",
+			"headers": "",
+			"data": [],
+			"rawModeData": "",
+			"tests": "tests[\"Status code is 200\"] = responseCode.code === 200;",
+			"preRequestScript": "",
+			"url": "{{host}}/user",
+			"responses": [],
+			"pathVariableData": [],
+			"queryParams": [],
+			"headerData": [],
+			"collection_id": "843ca901-236f-fddd-eeb2-e73778bc023c",
+			"folder": "e338d1f8-7320-f85c-dde8-af669a6b6846"
+		},
+		{
+			"id": "da93e279-9cbd-1a0c-0418-8417d0f4254f",
+			"headers": "",
+			"headerData": [],
+			"url": "{{host}}/user/6372bb8b276713a4637ec8ad/campos",
+			"folder": "d676b397-e767-93f8-97a5-0a7d01eab080",
+			"queryParams": [],
+			"preRequestScript": "",
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": [],
+			"dataMode": "params",
+			"tests": "tests[\"Status code is 200\"] = responseCode.code === 200;",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1668473337205,
+			"name": "{{host}}/user/:idUser/campos",
+			"description": "Obtener usuarios",
+			"collectionId": "843ca901-236f-fddd-eeb2-e73778bc023c",
+			"responses": []
+		},
+		{
+			"id": "dea602fc-9af9-4a0a-83c8-e65e0ed44848",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{host}}/user/63714a2e7b54baaa07d7c587/campos/6372e2e51754732ee223f8ae",
+			"folder": "d676b397-e767-93f8-97a5-0a7d01eab080",
+			"queryParams": [],
+			"preRequestScript": "",
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "PUT",
+			"data": [],
+			"dataMode": "raw",
+			"tests": "tests[\"Status code is 200\"] = responseCode.code === 200;",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1668473657850,
+			"name": "{{host}}/user/:idUser/campos/:idCampo",
+			"description": "Obtener usuarios",
+			"collectionId": "843ca901-236f-fddd-eeb2-e73778bc023c",
+			"responses": [],
+			"rawModeData": "{\n    \"name\": \"CAMPO UPDATE PRUEBAAAA \",\n    \"hectareas\": 100,\n    \"direccion\": \"UPDATE PRUEBAAAA\"\n}"
+		},
+		{
+			"id": "e74ea595-977c-1578-b035-47f2763aa5f3",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{host}}/user/6372bb8b276713a4637ec8ad/campos/6372cfb538c0f8beb8d079a2/cultivos/6372d11c38c0f8beb8d079ac",
+			"folder": "f784abdd-5256-c206-3e6a-06c5db985e8e",
+			"queryParams": [],
+			"preRequestScript": "",
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "DELETE",
+			"data": [],
+			"dataMode": "raw",
+			"tests": "tests[\"Status code is 200\"] = responseCode.code === 200;",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1668469528611,
+			"name": "{{host}}/user/:idUser/campos/:idCampo/cultivos/:idCultivo",
+			"description": "Obtener usuarios",
+			"collectionId": "843ca901-236f-fddd-eeb2-e73778bc023c",
+			"responses": [],
+			"rawModeData": "{\n    \"_id\": \"6372d11c38c0f8beb8d079ac\"\n}"
+		},
+		{
+			"id": "f972e82c-b219-404c-ca7e-480edd1cae3a",
+			"headers": "",
+			"headerData": [],
+			"url": "{{host}}/user/6372bb8b276713a4637ec8ad/campos/6372e2e51754732ee223f8ae/cultivos",
+			"folder": "f784abdd-5256-c206-3e6a-06c5db985e8e",
+			"queryParams": [],
+			"preRequestScript": "",
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": [],
+			"dataMode": "params",
+			"tests": "tests[\"Status code is 200\"] = responseCode.code === 200;",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1668473672847,
+			"name": "{{host}}/user/:idUser/campos/:idCampo/cultivos",
+			"description": "Obtener cultivos de un campo",
+			"collectionId": "843ca901-236f-fddd-eeb2-e73778bc023c",
+			"responses": []
+		},
+		{
+			"id": "fc00ff03-1e63-fbed-d08d-9f52e8aed581",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{host}}/user/63714a2e7b54baaa07d7c587/campos/6372cadecb01abba41f9b492",
+			"folder": "d676b397-e767-93f8-97a5-0a7d01eab080",
+			"queryParams": [],
+			"preRequestScript": "",
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "DELETE",
+			"data": [],
+			"dataMode": "raw",
+			"tests": "tests[\"Status code is 200\"] = responseCode.code === 200;",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1668473101420,
+			"name": "{{host}}/user/:idUser/campos/:idCampo",
+			"description": "Obtener usuarios",
+			"collectionId": "843ca901-236f-fddd-eeb2-e73778bc023c",
+			"responses": [],
+			"rawModeData": "{\n        \"_id\": \"63715b65f4feb0c414cd3bbe\",\n        \"date\": \"2022-11-13T21:02:29.413Z\",\n        \"user\": \"63714a2e7b54baaa07d7c587\",\n        \"name\": \"campo2\",\n\t    \"hectareas\": 12,\n\t    \"direccion\": \"avenida dsfdsf\",\n        \"__v\": 0\n}"
+		},
+		{
+			"id": "fe577b42-2e12-8f7d-ac95-da3693cc38ed",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{host}}/user/6372bb8b276713a4637ec8ad/campos",
+			"folder": "d676b397-e767-93f8-97a5-0a7d01eab080",
+			"queryParams": [],
+			"preRequestScript": "",
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"tests": "tests[\"Status code is 200\"] = responseCode.code === 200;",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1668473570778,
+			"name": "{{host}}/user/:idUser/campos",
+			"description": "Obtener usuarios",
+			"collectionId": "843ca901-236f-fddd-eeb2-e73778bc023c",
+			"responses": [],
+			"rawModeData": "{\n    \"name\": \"CAMPO PRUEBAAAA\",\n    \"hectareas\": 100,\n    \"direccion\": \"PRUEBAAAA\"\n}"
 		}
 	]
 }
