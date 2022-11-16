@@ -22,9 +22,9 @@ router.post('/:idUser/productos', async (req,res)=>{ //nos permite guardar produ
 });
 
 router.get('/:idUser/productos/:idProducto', async (req,res) => { //obtener datos de un producto almacenados
-    console.log(req.params);
-    const producto = await Productos.find(req.params.idProducto);
-    console.log("productos --> " + producto);
+    
+    const producto = await Productos.findById(req.params.idProducto);
+    console.log("producto --> " + producto + " con ID " + req.params.idProducto);
     res.json(producto);
 });
 
