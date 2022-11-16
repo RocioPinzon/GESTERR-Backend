@@ -16,7 +16,9 @@ router.post('/:idUser/campos/:idCampo/cultivos', async (req,res)=>{ //nos permit
     
     console.log("req.body --> " , JSON.stringify(req.body));
     const cultivos = new Cultivos(req.body);
-    cultivos.campoId = req.body.idCampo;
+    cultivos.campoId = req.params.idCampo;
+    cultivos.user = req.params.idUser;
+
     //necestas el id del usuario - necesito req.params.idUser
     //console.log("req.body --> " , req.body);
     //console.log("Cultivos() --> " + new Cultivos());
