@@ -4,6 +4,7 @@
   "description": "GesTerr | Aplicacion para gestion de campos.",
   "main": "index.js",
   "scripts": {
+    "start": "npm install",
     "dev": "nodemon src/app.js"
   },
   "keywords": [
