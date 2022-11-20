@@ -1,7 +1,6 @@
 const mongoose = require ('mongoose');
 const { Schema } = mongoose;
 
-
 const CultivoSchema = new Schema({
     user:{type:String},
     campoId: {type: String, require:true},
