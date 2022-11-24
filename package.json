@@ -1,5 +1,5 @@
 {
-  "name": "gesterr-backend",
+  "name": "gesterr-back",
   "version": "1.0.0",
   "description": "GesTerr | Aplicacion para gestion de campos.",
   "main": "index.js",
