@@ -3,7 +3,6 @@ const bcrypt = require ('bcryptjs');
 
 const { Schema } = mongoose;
 
-
 const UserSchema = new Schema({
     name: {type: String, require:true},
     apellidos: {type: String, require:true,},
@@ -11,7 +10,6 @@ const UserSchema = new Schema({
     email: {type: String, require:true,unique: true},
     password: {type: String, require:true},
     date: {type: Date, default: Date.now} 
-
 });
 
 UserSchema.methods.encryptPassword = async(password) => {
@@ -24,7 +22,7 @@ UserSchema.methods.encryptPassword = async(password) => {
 
 UserSchema.methods.matchPassword = async function(password){
     
-    return await bcrypt.compare(password, this.password);//comparar password login con password bd
+    return await bcrypt.compare(password, this.password); //comparar password login con password bd
 };
 
 var User = mongoose.model('User', UserSchema);
