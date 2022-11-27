@@ -34,7 +34,7 @@ router.post('/signin', async (req, res) => {
 
 router.post('/signup', async (req, res) => {
     console.log("SIGNUP BODY: " + JSON.stringify(req.body));
-    const { name, email, password, confirmPassword } = req.body;
+    const { name, apellidos, email, username, password, confirmPassword } = req.body;
     const errors = [];
 
     if (!name || name.length <= 0) {
@@ -49,17 +49,17 @@ router.post('/signup', async (req, res) => {
         errors.push({ error: 'Las contraseñas no son iguales.' });
     }
 
-    if (!password || password.length < 4) {
-        errors.push({ error: 'La contraseña debe tener al menos 4 caracteres.' });
+    if (!password || password.length > 5) {
+        errors.push({ error: 'La contraseña debe tener al menos 5 caracteres.' });
     }
     if (errors.length > 0) {
-        res.status(400).json({ errors, name, email, password, confirmPassword });
+        res.status(400).json({ errors, name, apellidos, email, username, password, confirmPassword });
     } else {
         const emailUser = await User.findOne({ email: email });
         if (emailUser) {
             res.status(400).json({ error: 'El email ya está en uso' });
         } else {
-            const newUser = new User({ name, email, password });
+            const newUser = new User({ name, apellidos, email, username, password });
             newUser.password = await newUser.encryptPassword(password);
             await newUser.save();
             res.status(200).json({ msg: 'Estás registrado' });
