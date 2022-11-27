@@ -53,7 +53,7 @@ router.post('/signup', async (req, res) => {
         errors.push({ error: 'La contraseña debe tener al menos 5 caracteres.' });
     }
     if (errors.length > 0) {
-        res.status(400).json({ errors, name, apellidos, email, username, password });
+        res.status(400).json({ errors, name, apellidos, email, username, password, confirmPassword });
     } else {
         const emailUser = await User.findOne({ email: email });
         if (emailUser) {
