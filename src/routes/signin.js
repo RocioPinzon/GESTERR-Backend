@@ -3,8 +3,11 @@ const router = express.Router();
 const User = require('../models/User');
 const passport = require('passport');
 
+const { isAuthenticated } = require('../helpers/auth');
 
-router.post('/signin', async (req, res) => {
+//router.post('/signin', async (req, res) => {
+    router.post('/signin', isAuthenticated, async (req, res) => {
+  
     console.log("SIGNUP BODY: " + JSON.stringify(req.body));
     const { email, password } = req.body;
     const errors = [];
@@ -17,10 +20,11 @@ router.post('/signin', async (req, res) => {
     }
 
     if (errors.length > 0) {
-        res.status(400).json({ errors, email });
+        res.status(400).json({ errors, email, password });
     } else {
         const usuarioEncontrado = await User.findOne({ email: email });
         if (!usuarioEncontrado) {
+            
             res.status(400).json({ error: 'Usuario o contraseña invalida' });
         } else {
             if (usuarioEncontrado.matchPassword(password)) {

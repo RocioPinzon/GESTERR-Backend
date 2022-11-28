@@ -7,15 +7,16 @@ const app = express();
 const cors = require('cors');
 app.use(cors({
     origin: "*",
-    methods: ['GET','POST','DELETE','UPDATE','PUT','PATCH']
-
+    methods: ['GET','POST','DELETE','UPDATE','PUT','PATCH','OPTIONS']
+    
 }));
 
 const morgan = require('morgan');
 require('./database');
+require('./config/passport');
 
 /*
-    REQUISITOS SECUNDATIOS
+    REQUISITOS SECUNDARIOS
 */
 const expressSession = require('express-session');
 const passport = require('passport');

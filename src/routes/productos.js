@@ -3,6 +3,8 @@ const router = express.Router();
 
 const Productos = require('../models/Producto');
 
+const { isAuthenticated } = require('../helpers/auth');
+
 router.get('/:idUser/productos', async (req,res) => { //obtener productos de un usuario
     console.log("Obtener campo: " +JSON.stringify(req.params));
     //necestas el id del usuario - necesito req.params.idUser
