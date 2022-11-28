@@ -9,7 +9,8 @@ const UserSchema = new Schema({
     username: {type: String, require:true,unique: true},
     email: {type: String, require:true,unique: true},
     password: {type: String, require:true},
-    date: {type: Date, default: Date.now} 
+    date: {type: Date, default: Date.now},
+    admin:{type: Boolean, require:false}
 });
 
 UserSchema.methods.encryptPassword = async(password) => {

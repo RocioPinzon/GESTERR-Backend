@@ -3,6 +3,8 @@ const router = express.Router();
 const User = require('../models/User');
 const passport = require('passport');
 
+const { isAuthenticated } = require('../helpers/auth');
+
 //router.post('/signin', async (req, res) => {
     router.post('/signin', async (req, res) => {
   
@@ -26,7 +28,7 @@ const passport = require('passport');
             res.status(400).json({ error: 'Usuario o contraseña invalida' });
         } else {
             if (usuarioEncontrado.matchPassword(password)) {
-                res.status(200).json({ userId: usuarioEncontrado.id });
+                res.status(200).json({ userId: usuarioEncontrado.id, admin:usuarioEncontrado.admin});
             } else {
                 res.status(400).json({ error: 'Usuario o contraseña invalida' });
             }
