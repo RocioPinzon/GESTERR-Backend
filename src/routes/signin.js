@@ -3,10 +3,8 @@ const router = express.Router();
 const User = require('../models/User');
 const passport = require('passport');
 
-const { isAuthenticated } = require('../helpers/auth');
-
 //router.post('/signin', async (req, res) => {
-    router.post('/signin', isAuthenticated, async (req, res) => {
+    router.post('/signin', async (req, res) => {
   
     console.log("SIGNUP BODY: " + JSON.stringify(req.body));
     const { email, password } = req.body;

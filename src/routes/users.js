@@ -3,8 +3,6 @@ const router = express.Router();
 const User = require('../models/User');
 const passport = require('passport');
 
-const { isAuthenticated } = require('../helpers/auth');
-
 router.get('/', async (req,res) => {
 
     //necestas el id del usuario - necesito req.params.idUser

@@ -3,8 +3,6 @@ const router = express.Router();
 
 const Campos = require('../models/Campo');
 
-const { isAuthenticated } = require('../helpers/auth');
-
 router.get('/:idUser/campos', async (req,res) => { //obtner campos de un usuaio almacenados
     console.log("Obtener campo: " +JSON.stringify(req.params));
     //necestas el id del usuario - necesito req.params.idUser

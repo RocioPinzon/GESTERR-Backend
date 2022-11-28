@@ -3,8 +3,6 @@ const router = express.Router();
 
 const Cultivos = require('../models/Cultivo');
 
-const { isAuthenticated } = require('../helpers/auth');
-
 router.get('/:idUser/campos/:idCampo/cultivos', async (req,res) => { //obtener cultivos de un campo
     console.log("Obtener cultivos: " +JSON.stringify(req.params));
     //necestas el id del usuario - necesito req.params.idUser
