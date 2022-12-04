@@ -7,7 +7,8 @@ const CampoSchema = new Schema({
     hectareas: {type: Number, require:true},
     date: {type: Date, default: Date.now},
     estadoCampos: {type: String},
-    user:{type:String}
+    user:{type:String},
+    provincia:{type:String}
 });
 
 var Campo = mongoose.model('Campo', CampoSchema);
