@@ -18,4 +18,13 @@ router.get('/:idUser', async (req,res) => { //obtner campos almacenados
     res.json(user);
 });
 
+router.put('/:idUser', async (req,res) => { //actualizar campos almacenados
+    console.log("req.body --> " , JSON.stringify(req.body));
+    const userActualizado = await User.findByIdAndUpdate(req.params.idUser, req.body);
+
+    console.log("userActualizado --> " + userActualizado);
+    //res.json(campos);
+    res.json(userActualizado);
+});
+
 module.exports = router;
