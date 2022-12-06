@@ -7,7 +7,7 @@ const ProductoSchema = new Schema({
     cantidad: {type: String},
     user:{type:String},
     cultivoId: {type: String},
-    precio:{type: mongoose.Decimal128}
+    precio:{type: Number}
 });
 
 
