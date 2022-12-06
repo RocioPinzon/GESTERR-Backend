@@ -26,5 +26,12 @@ router.put('/:idUser', async (req,res) => { //actualizar campos almacenados
     //res.json(campos);
     res.json(userActualizado);
 });
+router.delete('/:idUser', async(req,res)=>{
+
+    const userEliminado = await User.findByIdAndDelete(req.params.idUser, req.body);
+    //DEBO eliminar los campos y cultivos asociados al usuario?
+    //const camposEliminados = await User.findByIdAndDelete(req.params.idUser, req.body);
+    res.json(userEliminado);
+});
 
 module.exports = router;
