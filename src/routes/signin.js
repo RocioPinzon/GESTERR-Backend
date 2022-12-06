@@ -44,16 +44,24 @@ router.post('/signup', async (req, res) => {
     if (!name || name.length <= 0) {
         errors.push({ error: 'El nombre no puede estar vacio.' });
     }
-
-    /*if (!password || password.length <= 0) {
+    if (!apellidos || apellidos.length <= 0) {
+        errors.push({ error: 'El apellidos no puede estar vacio.' });
+    }
+    if (!email || email.length <= 0) {
+        errors.push({ error: 'El email no puede estar vacio.' });
+    }
+    if (!username || username.length <= 0) {
+        errors.push({ error: 'El username no puede estar vacio.' });
+    }
+    if (!password || password.length <= 0) {
         errors.push({ error: 'La contraseña no puede estar vacia.' });
-    }*/
+    }
 
     if (password != confirmPassword) {
         errors.push({ error: 'Las contraseñas no son iguales.' });
     }
 
-    if (!password || password.length >= 8 || password.length <= 15) {
+    if (!password || password.length >= 8) {
         errors.push({ error: 'La contraseña debe tener al menos 8 caracteres.' });
     }
     if (errors.length > 0) {
