@@ -11,8 +11,8 @@ const CultivoSchema = new Schema({
 });
 
 const ProductoCultivoSchema = new Schema({
-    idCultivo: {type: String},
-    idProducto: {type: String},
+    cultivoId: {type: String},
+    productId: {type: String},
     fechaInicio: {type: Date, default: Date.now},
     fechaFin: {type: Date},
 });
