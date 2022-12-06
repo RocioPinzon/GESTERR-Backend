@@ -45,9 +45,9 @@ router.post('/signup', async (req, res) => {
         errors.push({ error: 'El nombre no puede estar vacio.' });
     }
 
-    if (!password || password.length <= 0) {
+    /*if (!password || password.length <= 0) {
         errors.push({ error: 'La contraseña no puede estar vacia.' });
-    }
+    }*/
 
     if (password != confirmPassword) {
         errors.push({ error: 'Las contraseñas no son iguales.' });
