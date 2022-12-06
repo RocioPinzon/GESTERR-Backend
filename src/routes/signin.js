@@ -61,7 +61,7 @@ router.post('/signup', async (req, res) => {
         errors.push({ error: 'Las contraseñas no son iguales.' });
     }
 
-    if (!password || password.length >= 8) {
+    if (!password || password.length <= 8 ||password.length >= 15 ) {
         errors.push({ error: 'La contraseña debe tener al menos 8 caracteres.' });
     }
     if (errors.length > 0) {
