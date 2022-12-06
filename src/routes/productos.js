@@ -48,6 +48,7 @@ router.get('/:idUser/campos/:idCampo/cultivos/:idCultivo/productos', async (req,
 
     const productos = new Productos(req.body);
     productos.user = req.params.idUser;
+    productos.cultivoId = req.params.idCultivo;
 
     const productoCreado = await productos.save();
     res.json(productoCreado);
@@ -58,6 +59,7 @@ router.post('/:idUser/campos/:idCampo/cultivos/:idCultivo/productos', async (req
 
     const productos = new Productos(req.body);
     productos.user = req.params.idUser;
+    productos.cultivoId = req.params.idCultivo;
 
     const productoCreado = await productos.save();
     res.json(productoCreado);
@@ -65,7 +67,7 @@ router.post('/:idUser/campos/:idCampo/cultivos/:idCultivo/productos', async (req
 
 router.get('/:idUser/campos/:idCampo/cultivos/:idCultivo/productos/:idProducto', async (req,res) => { //obtener datos de un producto almacenado
     
-    const producto = await Productos.findById(req.params.idProducto);
+    const producto = await Productos.findById(req.params.idCultivo);
     console.log("producto --> " + producto + " con ID " + req.params.idProducto);
     res.json(producto);
 });
@@ -74,7 +76,7 @@ router.get('/:idUser/campos/:idCampo/cultivos/:idCultivo/productos/:idProducto',
 router.put('/:idUser/campos/:idCampo/cultivos/:idCultivo/productos/:idProducto',async (req,res)=>{//Editar un producto
     console.log("req.body --> " , JSON.stringify(req.body));
 
-    const productoActualizado = await Productos.findByIdAndUpdate(req.params.idProducto, req.body);
+    const productoActualizado = await Productos.findByIdAndUpdate(req.params.idCultivo, req.body);
     res.json(productoActualizado);
 });
 

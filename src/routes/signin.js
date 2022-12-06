@@ -22,15 +22,15 @@ const { isAuthenticated } = require('../helpers/auth');
     if (errors.length > 0) {
         res.status(400).json({ errors, email, password });
     } else {
-        const usuarioEncontrado = await User.findOne({ email: email });
+        const usuarioEncontrado = await User.findOne({ email: email});
         if (!usuarioEncontrado) {
             
-            res.status(400).json({ error: 'Usuario o contraseña invalida' });
+            res.status(400).json({ error: 'email o contraseña invalida' });
         } else {
             if (usuarioEncontrado.matchPassword(password)) {
                 res.status(200).json({ userId: usuarioEncontrado.id, admin:usuarioEncontrado.admin});
             } else {
-                res.status(400).json({ error: 'Usuario o contraseña invalida' });
+                res.status(400).json({ error: 'email o contraseña invalida' });
             }
         }
     }
@@ -62,7 +62,7 @@ router.post('/signup', async (req, res) => {
     }
 
     if (!password || password.length <= 7 ||password.length >= 15 ) {
-        errors.push({ error: 'password.length <=  La contraseña debe tener al menos 8 caracteres.' });
+        errors.push({ error: 'La contraseña debe tener al menos 8 caracteres.' });
     }
     if (errors.length > 0) {
         res.status(400).json({ errors, name, apellidos, email, username, password, confirmPassword });
