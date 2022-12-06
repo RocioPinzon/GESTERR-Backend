@@ -11,14 +11,14 @@ router.get('/', async (req,res) => {
     res.json(users);
 });
 
-router.get('/:idUser', async (req,res) => { //obtner campos almacenados
+router.get('/:idUser', async (req,res) => { //obtner un user
     const user = await User.findById(req.params.idUser);
     console.log("user --> " + user);
     //res.json(campos);
     res.json(user);
 });
 
-router.put('/:idUser', async (req,res) => { //actualizar campos almacenados
+router.put('/:idUser', async (req,res) => { //actualizar un user almacenados
     console.log("req.body --> " , JSON.stringify(req.body));
     const userActualizado = await User.findByIdAndUpdate(req.params.idUser, req.body);
 

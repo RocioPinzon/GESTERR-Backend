@@ -25,7 +25,7 @@ router.post('/:idUser/campos/:idCampo/cultivos', async (req,res)=>{ //nos permit
     res.json(cultivoCreado);
 });
 
-router.get('/:idUser/campos/:idCampo/cultivos/:idCultivo', async (req,res) => { //obtner campos almacenados
+router.get('/:idUser/campos/:idCampo/cultivos/:idCultivo', async (req,res) => { //obtner cultivos almacenados en un campo
     const cultivos = await Cultivos.findById(req.params.idCultivo);
     console.log("cultivos --> " + cultivos);
     res.json(cultivos); 
