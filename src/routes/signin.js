@@ -62,7 +62,7 @@ router.post('/signup', async (req, res) => {
     }
 
     if (!password || password.length <= 8 ||password.length >= 15 ) {
-        errors.push({ error: 'La contraseña debe tener al menos 8 caracteres.' });
+        errors.push({ error: 'password.length <= 8 La contraseña debe tener al menos 8 caracteres.' });
     }
     if (errors.length > 0) {
         res.status(400).json({ errors, name, apellidos, email, username, password, confirmPassword });
