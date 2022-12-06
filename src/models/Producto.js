@@ -6,7 +6,7 @@ const ProductoSchema = new Schema({
     name: {type: String},
     cantidad: {type: String},
     user:{type:String},
-    idCultivo: {type: String}
+    cultivoId: {type: String}
 });
 
 
