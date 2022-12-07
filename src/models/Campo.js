@@ -8,7 +8,12 @@ const CampoSchema = new Schema({
     date: {type: Date, default: Date.now},
     estadoCampos: {type: String},
     user:{type:String},
-    provincia:{type:String}
+    provincia:{type:String},
+    estado: {
+        type: String,
+        enum: ['SINCULTIVAR','CONCULTIVOS','BARBECHO'],
+        default: 'SINCULTIVAR',
+    },
 });
 
 var Campo = mongoose.model('Campo', CampoSchema);

@@ -7,16 +7,17 @@ const EstadosDeCampoSchema = new Schema({
         enum: ['SINCULTIVAR','CONCULTIVOS','BARBECHO'],
         default: 'SINCULTIVAR',
     },
-    campoId:{type:String}
+    //campoId:{type:String}
 });
 
+/*
 const CampoTieneEstadosSchema = new Schema({
     idEstado:{type:String},
     campoId:{type:String}
-});
+});*/
+//var CampoTieneEstados = mongoose.model('CampoTieneEstados', CampoTieneEstadosSchema);
 
 var EstadosDeCampo = mongoose.model('EstadosDeCampo', EstadosDeCampoSchema);
-var CampoTieneEstados = mongoose.model('CampoTieneEstados', CampoTieneEstadosSchema);
 
 //EXPORTADOS
-module.exports = EstadosDeCampo,CampoTieneEstados;
+module.exports = EstadosDeCampo;
