@@ -43,4 +43,5 @@ router.delete('/:idUser/campos/:idCampo/cultivos/:idCultivo', async(req,res)=>{
     res.json(cultivos);
 });
 
+
 module.exports = router;
