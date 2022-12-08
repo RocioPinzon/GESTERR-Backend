@@ -11,8 +11,7 @@ const CampoSchema = new Schema({
     provincia:{type:String},
     estado: {
         type: String,
-        enum: ['SINCULTIVAR','CONCULTIVOS','BARBECHO'],
-        default: 'SINCULTIVAR',
+        enum: ['SINCULTIVAR','CONCULTIVOS','BARBECHO']
     },
 });
 
