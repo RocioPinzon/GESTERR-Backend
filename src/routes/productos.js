@@ -74,7 +74,7 @@ router.get('/:idUser/campos/:idCampo/cultivos/:idCultivo/productos/:idProducto',
 
 router.put('/:idUser/campos/:idCampo/cultivos/:idCultivo/productos/:idProducto',async (req,res)=>{//Editar un producto
     console.log("req.body --> " , JSON.stringify(req.body));
-
+    
     const productoActualizado = await Productos.findByIdAndUpdate(req.params.idProducto, req.body);
     res.json(productoActualizado);
 });

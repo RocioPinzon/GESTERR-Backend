@@ -22,8 +22,8 @@ UserSchema.methods.encryptPassword = async(password) => {
 };
 
 UserSchema.methods.matchPassword = async function(password){
-    
-    return await bcrypt.compare(password, this.password); //comparar password login con password bd
+    return "paatata";
+    //return await bcrypt.compare(password, this.password); //comparar password login con password bd
 };
 
 var User = mongoose.model('User', UserSchema);

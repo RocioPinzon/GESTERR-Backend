@@ -14,7 +14,7 @@ router.get('/:idUser/campos/:idCampo/cultivos/:idCultivo/registroproductos', asy
 router.post('/:idUser/campos/:idCampo/cultivos/:idCultivo/registroproductos', async (req,res)=>{ //nos permite crar un nuevo registro de producto de un cultivo
     
     console.log("req.body --> " , JSON.stringify(req.body));
-    const cultivos = new ProductoCultivo(req.body);
+    const registroProducto = new ProductoCultivo(req.body);
     cultivos.cultivoId = req.params.idCultivo;
     cultivos.idCampo = req.params.idCampo;
     cultivos.user = req.params.idUser;
@@ -22,6 +22,6 @@ router.post('/:idUser/campos/:idCampo/cultivos/:idCultivo/registroproductos', as
     //necestas el id del usuario - necesito req.params.idUser
     //console.log("req.body --> " , req.body);
     //console.log("Cultivos() --> " + new Cultivos());
-    const cultivoCreado = await cultivos.save();
-    res.json(cultivoCreado);
+    const registroCreado = await registroProducto.save();
+    res.json(registroCreado);
 });
