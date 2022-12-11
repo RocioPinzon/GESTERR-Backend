@@ -16,7 +16,7 @@ router.post('/:idUser/campos/:idCampo/cultivos/:idCultivo/registroproductos', as
     console.log("req.body --> " , JSON.stringify(req.body));
     const registroProducto = new ProductoCultivo(req.body);
     cultivos.cultivoId = req.params.idCultivo;
-    cultivos.idCampo = req.params.idCampo;
+    //cultivos.idCampo = req.params.idCampo;
 
     //necestas el id del usuario - necesito req.params.idUser
     //console.log("req.body --> " , req.body);
