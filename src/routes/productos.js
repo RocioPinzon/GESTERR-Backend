@@ -57,6 +57,7 @@ router.post('/:idUser/campos/:idCampo/cultivos/:idCultivo/productos', async (req
     console.log("req.body --> " , JSON.stringify(req.body));
 
     const productos = new Productos(req.body);
+
     productos.user = req.params.idUser;
     productos.cultivoId = req.params.idCultivo;
 
