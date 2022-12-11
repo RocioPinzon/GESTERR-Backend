@@ -10,16 +10,9 @@ const CultivoSchema = new Schema({
     date: {type: Date, default: Date.now},
 });
 
-const ProductoCultivoSchema = new Schema({
-    cultivoId: {type: String},
-    productoId: {type: String},
-    estado:{type: String},
-    fechaInicio: {type: Date, default: Date.now},
-    fechaFin: {type: Date},
-});
+
 
 var Cultivo = mongoose.model('Cultivo', CultivoSchema);
-var ProductoCultivo = mongoose.model('ProductoCultivo', ProductoCultivoSchema);
 
 
-module.exports = Cultivo,ProductoCultivo;
+module.exports = Cultivo;

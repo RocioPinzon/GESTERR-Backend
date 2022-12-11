@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const ProductoCultivo = require('../models/Cultivo');
+const ProductoCultivo = require('../models/RegistroProducto');
 
 router.get('/:idUser/campos/:idCampo/cultivos/:idCultivo/registroproductos', async (req,res) => { //obtener registro productos de un cutlivo
     console.log("Obtener cultivos: " +JSON.stringify(req.params));
