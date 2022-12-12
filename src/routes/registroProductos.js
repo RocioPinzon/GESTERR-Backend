@@ -6,9 +6,9 @@ const ProductoCultivo = require('../models/RegistroProducto');
 router.get('/:idUser/campos/:idCampo/cultivos/:idCultivo/registroproductos', async (req,res) => { //obtener registro productos de un cutlivo
     console.log("Obtener cultivos: " +JSON.stringify(req.params));
     //necestas el id del usuario - necesito req.params.idUser
-    const cultivos = await ProductoCultivo.find({idCultivo: req.params.idCultivo});
-    console.log("Cultivos --> " + cultivos);
-    res.json(cultivos);
+    const registroproductos = await ProductoCultivo.find({cultivoId: req.params.idCultivo});
+    console.log("registroproductos --> " + registroproductos);
+    res.json(registroproductos);
 });
 
 router.post('/:idUser/campos/:idCampo/cultivos/:idCultivo/registroproductos', async (req,res)=>{ //nos permite crar un nuevo registro de producto de un cultivo
@@ -16,7 +16,7 @@ router.post('/:idUser/campos/:idCampo/cultivos/:idCultivo/registroproductos', as
     console.log("req.body --> " , JSON.stringify(req.body));
     const registroProducto = new ProductoCultivo(req.body);
     registroProducto.cultivoId = req.params.idCultivo;
-    //cultivos.idCampo = req.params.idCampo;
+    registroProducto.productoId = req.params.idCampo;
 
     //necestas el id del usuario - necesito req.params.idUser
     //console.log("req.body --> " , req.body);
