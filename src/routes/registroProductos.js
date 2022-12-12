@@ -24,3 +24,5 @@ router.post('/:idUser/campos/:idCampo/cultivos/:idCultivo/registroproductos', as
     const registroCreado = await registroProducto.save();
     res.json(registroCreado);
 });
+
+module.exports = router;

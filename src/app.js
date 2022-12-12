@@ -49,6 +49,7 @@ app.use('/user', require('./routes/signin'));
 app.use('/user', require('./routes/campos'));
 app.use('/user', require('./routes/cultivos'));
 app.use('/user', require('./routes/productos'));
+app.use('/user', require('./routes/registroProductos'));
 app.use('/user', require('./routes/estadosCampos'));
 
 
