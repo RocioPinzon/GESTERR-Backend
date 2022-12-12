@@ -8,9 +8,9 @@ const ProductoSchema = new Schema({
     user:{type:String},
     cultivoId: {type: String},
     precio:{type: Number},
-    estado:{type: Number}
+    estado:{type: Number},
+    fecha:{type: Date, default: Date.now}
 });
-
 
 var Producto = mongoose.model('Producto', ProductoSchema);
 
