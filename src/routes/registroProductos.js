@@ -3,6 +3,14 @@ const router = express.Router();
 
 const ProductoCultivo = require('../models/RegistroProducto');
 
+router.get('/:idUser/registroproductos', async (req,res) => { //obtener cultivos de un campo
+    console.log("Obtener cultivos: " +JSON.stringify(req.params));
+    //necestas el id del usuario - necesito req.params.idUser
+    const registroproductos = await ProductoCultivo.find({user: req.params.idUser});
+    console.log("Cultivos --> " + registroproductos);
+    res.json(registroproductos);
+
+});
 router.get('/:idUser/campos/:idCampo/cultivos/:idCultivo/registroproductos', async (req,res) => { //obtener registro productos de un cutlivo
     console.log("Obtener regsitros: " +JSON.stringify(req.params));
     //necestas el id del usuario - necesito req.params.idUser
