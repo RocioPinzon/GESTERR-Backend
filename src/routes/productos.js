@@ -46,7 +46,7 @@ router.delete('/:idUser/productos/:idProducto', async(req,res)=>{ //Eliminar un 
 router.get('/:idUser/campos/:idCampo/cultivos/:idCultivo/productos', async (req,res)=>{ //nos permite obtener productos de un cultivo
     console.log("req.body --> " , JSON.stringify(req.body));
 
-    const productos = new Productos(req.body);
+    const productos = await Productos.find({cultivoId: req.params.idCultivo});
     productos.cultivoId = req.params.idCultivo;
 
     const productoCreado = await productos.save();
@@ -57,7 +57,6 @@ router.post('/:idUser/campos/:idCampo/cultivos/:idCultivo/productos', async (req
     console.log("req.body --> " , JSON.stringify(req.body));
 
     const productos = new Productos(req.body);
-
     productos.user = req.params.idUser;
     productos.cultivoId = req.params.idCultivo;
 
