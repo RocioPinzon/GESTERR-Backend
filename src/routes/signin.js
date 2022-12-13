@@ -22,7 +22,7 @@ const { isAuthenticated } = require('../helpers/auth');
     if (errors.length > 0) {
         res.status(400).json({ errors, email, password });
     } else {
-        const usuarioEncontrado = await User.findOne({ email: email, password:password});
+        const usuarioEncontrado = await User.findOne({ email: email});
         if (!usuarioEncontrado) {
             res.status(400).json({ error: 'email o contraseña invalida' });
         } else {
