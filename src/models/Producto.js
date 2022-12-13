@@ -3,11 +3,11 @@ const mongoose = require ('mongoose');
 const { Schema } = mongoose;
 
 const ProductoSchema = new Schema({
-    name: {type: String},
-    cantidad: {type: String},
     user:{type:String},
     cultivoId: {type: String},
-    precio:{type: Number},    
+    name: {type: String, require:true},
+    cantidad: {type: String, require:true},
+    precio:{type: Number, require:true},    
     fecha:{type: Date, default: Date.now}
 });
 

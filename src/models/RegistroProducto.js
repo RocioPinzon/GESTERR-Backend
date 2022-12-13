@@ -4,9 +4,7 @@ const { Schema } = mongoose;
 const ProductoCultivoSchema = new Schema({
     cultivoId: {type: String},
     productoId: {type: String},
-    estado:{type: String},
-    fechaInicio: {type: Date, default: Date.now},
-    fechaFin: {type: Date},
+    fecha: {type: Date, default: Date.now},
 });
 
 var ProductoCultivo = mongoose.model('ProductoCultivo', ProductoCultivoSchema);

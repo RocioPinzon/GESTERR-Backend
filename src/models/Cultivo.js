@@ -7,6 +7,7 @@ const CultivoSchema = new Schema({
     nombre: {type: String, require:true},
     cantidad: {type: Number, require:true},
     hectareas: {type: Number, require:true},
+    estado: {type: Number, require:true},
     date: {type: Date, default: Date.now},
 });
 
