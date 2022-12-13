@@ -47,10 +47,8 @@ router.get('/:idUser/campos/:idCampo/cultivos/:idCultivo/productos', async (req,
     console.log("req.body --> " , JSON.stringify(req.body));
 
     const productos = await Productos.find({cultivoId: req.params.idCultivo});
-    productos.cultivoId = req.params.idCultivo;
-
-    const productoCreado = await productos.save();
-    res.json(productoCreado);
+    console.log("productos --> " + productos);
+    res.json(productos);
 });
 
 router.post('/:idUser/campos/:idCampo/cultivos/:idCultivo/productos', async (req,res)=>{ //nos guardar un producto a un cultivo
