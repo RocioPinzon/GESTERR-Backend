@@ -26,9 +26,10 @@ const { isAuthenticated } = require('../helpers/auth');
         if (!usuarioEncontrado) {
             res.status(400).json({ error: 'email o contraseña invalida' });
         } else {
-           
-            if (usuarioEncontrado.matchPassword(password)) {
-                res.status(200).json({ userId: usuarioEncontrado.id, admin:usuarioEncontrado.admin});
+            const usuarioPwEncontrado = await User.findOne({ password: password});
+
+            if (usuarioPwEncontrado.matchPassword(password)) {
+                res.status(200).json({ userId: usuarioPwEncontrado.id, admin:usuarioPwEncontrado.admin});
             } else {   
                 res.status(400).json({ error: 'email o contraseña invalidavs' });
             }
