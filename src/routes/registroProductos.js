@@ -3,7 +3,7 @@ const router = express.Router();
 
 const ProductoCultivo = require('../models/RegistroProducto');
 
-router.get('/:idUser/registroproductos', async (req,res) => { //obtener cultivos de un campo
+router.get('/:idUser/registroproductos', async (req,res) => { //obtener registros cultivo-campo
     console.log("Obtener cultivos: " +JSON.stringify(req.params));
     //necestas el id del usuario - necesito req.params.idUser
     const registroproductos = await ProductoCultivo.find({user: req.params.idUser});
@@ -11,6 +11,7 @@ router.get('/:idUser/registroproductos', async (req,res) => { //obtener cultivos
     res.json(registroproductos);
 
 });
+
 router.get('/:idUser/campos/:idCampo/cultivos/:idCultivo/registroproductos', async (req,res) => { //obtener registro productos de un cutlivo
     console.log("Obtener regsitros: " +JSON.stringify(req.params));
     //necestas el id del usuario - necesito req.params.idUser
@@ -26,9 +27,6 @@ router.post('/:idUser/campos/:idCampo/cultivos/:idCultivo/registroproductos', as
     registroProducto.cultivoId = req.params.idCultivo;
     registroProducto.productoId = req.params.idCampo;
 
-    //necestas el id del usuario - necesito req.params.idUser
-    //console.log("req.body --> " , req.body);
-    //console.log("Cultivos() --> " + new Cultivos());
     const registroCreado = await registroProducto.save();
     res.json(registroCreado);
 });
