@@ -22,14 +22,13 @@ const { isAuthenticated } = require('../helpers/auth');
     if (errors.length > 0) {
         res.status(400).json({ errors, email, password });
     } else {
-        const usuarioEncontrado = await User.findOne({ email: email});
+        const usuarioEncontrado = await User.findOne({ email: email, password:password});
         if (!usuarioEncontrado) {
             res.status(400).json({ error: 'email o contraseña invalida' });
         } else {
-            const usuarioPwEncontrado = await User.findOne({ password: password});
 
-            if (usuarioPwEncontrado.matchPassword(password)) {
-                res.status(200).json({ userId: usuarioPwEncontrado.id, admin:usuarioPwEncontrado.admin});
+            if (usuarioEncontrado.matchPassword(password)) {
+                res.status(200).json({ userId: usuarioEncontrado.id, admin:usuarioEncontrado.admin});
             } else {   
                 res.status(400).json({ error: 'email o contraseña invalidavs' });
             }
