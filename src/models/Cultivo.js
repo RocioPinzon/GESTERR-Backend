@@ -12,8 +12,6 @@ const CultivoSchema = new Schema({
 });
 
 
-
 var Cultivo = mongoose.model('Cultivo', CultivoSchema);
-
 
 module.exports = Cultivo;
